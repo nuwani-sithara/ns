@@ -1,1 +1,1 @@
-# ns - professional poerfolio
+# ns - professional portfolio
