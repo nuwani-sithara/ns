@@ -679,6 +679,108 @@ a:hover {
   margin-bottom: 5px;
 }
 
+/* Live Sites Section */
+.live-sites-grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+.live-site-card {
+  background: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.live-site-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.live-site-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.live-site-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.live-site-card:hover .live-site-image img {
+  transform: scale(1.05);
+}
+
+.live-site-content {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.live-site-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: var(--secondary-color);
+}
+
+.live-site-description {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+.live-site-meta {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px dashed var(--border-color);
+}
+
+.live-site-tech {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.live-site-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* CV Download Button in Header */
+.header-cta .btn i {
+  margin-right: 8px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .live-sites-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .header-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .header-cta .btn {
+    width: 100%;
+    max-width: 250px;
+    margin: 5px 0;
+  }
+}
+
 /* Animations */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
