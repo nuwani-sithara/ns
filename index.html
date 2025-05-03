@@ -14,10 +14,17 @@
       <h1 class="name-title">Nuwani Sithara</h1>
       <p class="professional-tagline">Software Engineering Undergraduate | Full-Stack Developer </p>
       <div class="header-cta">
-        <a href="#contact" class="btn btn-primary">Contact Me</a>
-        <a href="#projects" class="btn btn-secondary">View Projects</a>
-        <a href="cv.pdf" class="btn btn-primary" download="Nuwani_Sithara_CV.pdf">
-          <i class="fas fa-download"></i> Download CV
+        <a href="#contact" class="btn btn-primary">
+          <i class="fas fa-envelope mobile-icon"></i>
+          <span class="btn-text">Contact Me</span>
+        </a>
+        <a href="#projects" class="btn btn-secondary">
+          <i class="fas fa-code mobile-icon"></i>
+          <span class="btn-text">View Projects</span>
+        </a>
+        <a href="path/to/your-cv.pdf" class="btn btn-primary" download="Nuwani_Sithara_CV.pdf">
+          <i class="fas fa-download mobile-icon"></i>
+          <span class="btn-text">Download CV</span>
         </a>
       </div>
     </div>
@@ -25,14 +32,17 @@
 
   <nav class="sticky-nav">
     <div class="container">
-      <ul>
-        <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
-        <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
-        <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
-        <li><a href="#live-sites"><i class="fas fa-globe"></i> Live Sites</a></li>
-        <li><a href="#collaborations"><i class="fas fa-users"></i> Collaborations</a></li>
-        <li><a href="#skills"><i class="fas fa-cogs"></i> Skills</a></li>
-        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+        <li><a href="#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+        <li><a href="#projects"><i class="fas fa-code"></i> <span>Projects</span></a></li>
+        <li><a href="#live-sites"><i class="fas fa-globe"></i> <span>Live Sites</span></a></li>
+        <li><a href="#collaborations"><i class="fas fa-users"></i> <span>Collaborations</span></a></li>
+        <li><a href="#skills"><i class="fas fa-cogs"></i> <span>Skills</span></a></li>
+        <li><a href="#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
       </ul>
     </div>
   </nav>
@@ -581,6 +591,26 @@
         } else {
           alert('Error sending message.');
         }
+      });
+    });
+
+    // Mobile menu toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.querySelector('.mobile-menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      
+      menuToggle.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+        this.innerHTML = navLinks.classList.contains('active') ? 
+          '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+      });
+      
+      // Close menu when a link is clicked
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function() {
+          navLinks.classList.remove('active');
+          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        });
       });
     });
 
